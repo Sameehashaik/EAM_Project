@@ -8,6 +8,7 @@ This project demonstrates a microservices-based stock trading platform using Spr
 
 - Sameeha Shaik (N01649346)
 - Kalwala Siddhartha Reddy (N01649317)
+- Manohar Reddy (N01661510)
 
 ---
 
@@ -27,12 +28,12 @@ This project demonstrates a microservices-based stock trading platform using Spr
 
 ## 🧱 Microservices Overview
 
-| Service           | Port | Description                                |
-|-------------------|------|--------------------------------------------|
-| Eureka Server     | 8761 | Service registry and discovery              |
-| Order Service     | 9091 | Places stock orders and calls Market       |
-| Market Service    | 9092 | Accepts stock orders from Order Service     |
-| User Service      | 9093 | Registers and fetches user information      |
+| Service        | Port | Description                             |
+| -------------- | ---- | --------------------------------------- |
+| Eureka Server  | 8761 | Service registry and discovery          |
+| Order Service  | 9091 | Places stock orders and calls Market    |
+| Market Service | 9092 | Accepts stock orders from Order Service |
+| User Service   | 9093 | Registers and fetches user information  |
 
 ---
 
@@ -66,16 +67,25 @@ This project demonstrates a microservices-based stock trading platform using Spr
 
 **POST** `/order/place`  
 **Body:**
+
 ```json
 {
   "stockSymbol": "NVDA",
   "quantity": 20,
-  "price": 145.40,
+  "price": 145.4,
   "username": "test"
 }
-````
+```
 
 > Also triggers a REST call to Market Service to create a stock entry.
+
+#### 📄 View All Orders
+
+**GET** `/order`
+
+#### 🔍 Get Orders by Username
+
+**GET** `/order/user/{username}`
 
 ---
 
@@ -93,6 +103,10 @@ This project demonstrates a microservices-based stock trading platform using Spr
   "price": 184.35
 }
 ```
+
+#### 📄 View All Market Entries
+
+**GET** `/market`
 
 ---
 
@@ -114,22 +128,22 @@ This project demonstrates a microservices-based stock trading platform using Spr
 #### 🔍 Fetch User by ID
 
 **GET** `/users/{id}`
-**Example:**
 
-```
-GET http://localhost:9093/users/662fd9a27cebc01cf14235ad
-```
+#### 📄 View All Users
+
+**GET** `/users`
 
 ---
 
 ## ✅ Project Highlights
 
-* ✅ Spring Cloud Eureka for service discovery
-* ✅ 3 decoupled microservices communicating via REST
-* ✅ MongoDB for persistent storage
-* ✅ Jackson used for JSON serialization/deserialization
-* ✅ RESTTemplate used for internal service calls
-* ✅ Tested with Postman
+- ✅ Spring Cloud Eureka for service discovery
+- ✅ 3 decoupled microservices communicating via REST
+- ✅ MongoDB for persistent storage
+- ✅ Jackson used for JSON serialization/deserialization
+- ✅ RESTTemplate used for internal service calls
+- ✅ Full CRUD support and validation in all services
+- ✅ Tested with Postman
 
 ---
 
@@ -153,17 +167,18 @@ EAM_Project/
 
 ## 👨‍🏫 Instructor Requirements Covered
 
-* [x] Eureka Server using `@EnableEurekaServer`
-* [x] 3 Microservices with `@EnableDiscoveryClient`
-* [x] One key operation per service
-* [x] MongoDB integration in all services
-* [x] REST chaining (Order → Market)
-* [x] Uses Jackson and dynamic REST URIs
-* [x] GitHub + video-ready submission
+- [x] Eureka Server using `@EnableEurekaServer`
+- [x] 3 Microservices with `@EnableDiscoveryClient`
+- [x] One key operation per service (plus additional CRUD)
+- [x] MongoDB integration in all services
+- [x] REST chaining (Order → Market)
+- [x] Uses Jackson and dynamic REST URIs
+- [x] Spring Validation with `@Valid`
+- [x] Global Exception Handling
+- [x] GitHub + video-ready submission
 
 ---
 
 ## 🔗 GitHub Repo
 
 *https://github.com/Sameehashaik/EAM_Project.git*
-
